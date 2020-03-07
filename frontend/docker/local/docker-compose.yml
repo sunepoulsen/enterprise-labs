@@ -1,0 +1,6 @@
+version: "2"
+services:
+  tech-enterprise-labs-web:
+    image: tech-enterprise-labs-web:latest
+    ports:
+      - "8080"
