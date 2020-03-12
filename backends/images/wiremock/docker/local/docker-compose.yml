@@ -1,0 +1,10 @@
+version: "2"
+services:
+  tel-wiremock:
+    image: tel-wiremock-image:latest
+    environment:
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+    volumes:
+      - "./config:/opt/app/config"
+    ports:
+      - "8080"

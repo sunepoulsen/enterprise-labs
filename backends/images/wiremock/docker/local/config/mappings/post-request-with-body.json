@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/instances",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{ \"key\": \"key\",\"name\": \"name\",\"description\": \"description\"}"
+    } ]
+  },
+  "response": {
+    "status": 201,
+    "jsonBody": {
+      "id": 50,
+      "key": "key",
+      "name": "name",
+      "description": "description"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
