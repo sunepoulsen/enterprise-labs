@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>backends</artifactId>
+        <groupId>dk.sunepoulsen.tech-enterprise-labs</groupId>
+        <version>1.0-0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>client</module>
+    </modules>
+    <artifactId>backend-cores</artifactId>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <javadoc.show.level>public</javadoc.show.level>
+
+        <!-- Spring versions -->
+        <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
+        <spring-framework.version>5.1.9.RELEASE</spring-framework.version>
+        <tomcat-embed-core.version>9.0.12</tomcat-embed-core.version>
+
+        <!-- Library versions -->
+        <apache-common-io.version>2.6</apache-common-io.version>
+        <cucumber.version>1.2.5</cucumber.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <hibernate-core.version>5.4.4.Final</hibernate-core.version>
+        <hibernate-validator.version>6.0.17.Final</hibernate-validator.version>
+        <jackson.version>2.10.2</jackson.version>
+        <junit.version>4.12</junit.version>
+        <log4j.over.slf4j.version>1.7.25</log4j.over.slf4j.version>
+        <logback.version>1.2.3</logback.version>
+        <mockito.version>1.10.19</mockito.version>
+        <perf4j.version>0.9.16</perf4j.version>
+        <rxjava.version>2.2.12</rxjava.version>
+
+        <!-- Plugin versions -->
+        <compiler.plugin.version>3.8.1</compiler.plugin.version>
+        <surefire.plugin.version>2.22.2</surefire.plugin.version>
+        <jar.plugin.version>3.1.2</jar.plugin.version>
+        <jaxb2-maven-plugin.version>2.5.0</jaxb2-maven-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- ======================================================================== -->
+            <!--            Spring                                                        -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat-embed-core.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Swagger                                                       -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Jackson                                                       -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Database                                                      -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate-core.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Rx Java2                                                      -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>io.reactivex.rxjava2</groupId>
+                <artifactId>rxjava</artifactId>
+                <version>${rxjava.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Hibernate                                                     -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Performance                                                   -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>org.perf4j</groupId>
+                <artifactId>perf4j</artifactId>
+                <version>${perf4j.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Utility frameworks                                            -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${apache-common-io.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Logging                                                       -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${log4j.over.slf4j.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Tests                                                         -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${hamcrest.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-all</artifactId>
+                <version>${hamcrest.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>dk.sunepoulsen</groupId>
+                <artifactId>wiremock-utils</artifactId>
+                <version>${wiremock.utils.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>dk.sunepoulsen.mycash</groupId>
+                <artifactId>mc-service-test-core</artifactId>
+                <version>${mc-service-test-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Cucumber Testing                                              -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>info.cukes</groupId>
+                <artifactId>cucumber-java</artifactId>
+                <version>${cucumber.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>info.cukes</groupId>
+                <artifactId>cucumber-junit</artifactId>
+                <version>${cucumber.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- ======================================================================== -->
+        <!--            Logging                                                       -->
+        <!-- ======================================================================== -->
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+        </dependency>
+
+        <!-- ======================================================================== -->
+        <!--            Tests                                                         -->
+        <!-- ======================================================================== -->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>jaxb2-maven-plugin</artifactId>
+                    <version>${jaxb2-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>xjc</id>
+                            <goals>
+                                <goal>xjc</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${jar.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

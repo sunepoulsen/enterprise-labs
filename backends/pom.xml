@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>images</module>
+        <module>cores</module>
     </modules>
     <parent>
         <groupId>dk.sunepoulsen.tech-enterprise-labs</groupId>
