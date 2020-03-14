@@ -12,7 +12,6 @@
 
     <modules>
         <module>backends</module>
-        <module>boms</module>
     </modules>
 
 </project>

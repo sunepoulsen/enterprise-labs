@@ -3,11 +3,9 @@ package dk.sunepoulsen.teck.enterprise.labs.core.rs.client;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.model.monitoring.ServiceStatus;
 import io.reactivex.Observable;
 
-public class TechEnterpriseLabsIntegrator {
-    private TechEnterpriseLabsClient httpClient;
-
+public class TechEnterpriseLabsIntegrator extends AbstractIntegrator {
     public TechEnterpriseLabsIntegrator(TechEnterpriseLabsClient httpClient) {
-        this.httpClient = httpClient;
+        super(httpClient);
     }
 
     public Observable<ServiceStatus> status() {

@@ -8,6 +8,8 @@ module tech.enterprise.labs.core.client {
     requires java.net.http;
     requires slf4j.api;
 
+    exports dk.sunepoulsen.teck.enterprise.labs.core.rs.client;
+    exports dk.sunepoulsen.teck.enterprise.labs.core.rs.client.generators;
     exports dk.sunepoulsen.teck.enterprise.labs.core.rs.client.model;
     exports dk.sunepoulsen.teck.enterprise.labs.core.rs.client.model.monitoring;
 }

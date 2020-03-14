@@ -1,0 +1,12 @@
+version: "2"
+services:
+  tel-helloworld-service:
+    image: helloworld-backend-service:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+    ports:
+      - "8080"
+      - "8000"
+    volumes:
+      - "../../target/docker/local/tel-helloworld-service/logs:/opt/logs"

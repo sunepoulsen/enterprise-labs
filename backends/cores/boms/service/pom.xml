@@ -444,7 +444,7 @@
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
-                                    <executable>docker-delete-dangline-images.sh</executable>
+                                    <executable>docker-delete-dangling-images.sh</executable>
                                     <workingDirectory>${project.build.directory}/docker</workingDirectory>
                                 </configuration>
                             </execution>

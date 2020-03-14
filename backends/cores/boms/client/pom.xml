@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>dk.sunepoulsen.tech-enterprise-labs</groupId>
+        <artifactId>tel-boms</artifactId>
+        <version>1.0-0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>tel-client-bom</artifactId>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <!-- ======================================================================== -->
+        <!--            Tech Enterprise Labs                                          -->
+        <!-- ======================================================================== -->
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>tel-client-core</artifactId>
+        </dependency>
+
+        <!-- ======================================================================== -->
+        <!--            Rx Java2                                                      -->
+        <!-- ======================================================================== -->
+
+        <dependency>
+            <groupId>io.reactivex.rxjava2</groupId>
+            <artifactId>rxjava</artifactId>
+        </dependency>
+
+        <!-- ======================================================================== -->
+        <!--            Hibernate                                                     -->
+        <!-- ======================================================================== -->
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <!-- ======================================================================== -->
+        <!--            Tests                                                         -->
+        <!-- ======================================================================== -->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+</project>

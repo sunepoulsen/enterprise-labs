@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>backends</artifactId>
         <groupId>dk.sunepoulsen.tech-enterprise-labs</groupId>
+        <artifactId>backends</artifactId>
         <version>1.0-0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -22,6 +22,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
         <javadoc.show.level>public</javadoc.show.level>
+
+        <!-- Tech Enterprise Lab versions -->
+        <tel-client-core.version>${project.version}</tel-client-core.version>
 
         <!-- Spring versions -->
         <spring-boot.version>2.1.7.RELEASE</spring-boot.version>
@@ -52,12 +55,27 @@
     <dependencyManagement>
         <dependencies>
             <!-- ======================================================================== -->
+            <!--            Tech Enterprise Labs                                          -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>tel-client-core</artifactId>
+                <version>${tel-client-core.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
             <!--            Spring                                                        -->
             <!-- ======================================================================== -->
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
@@ -79,21 +97,6 @@
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
                 <version>${tomcat-embed-core.version}</version>
-            </dependency>
-
-            <!-- ======================================================================== -->
-            <!--            Swagger                                                       -->
-            <!-- ======================================================================== -->
-
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${swagger.version}</version>
             </dependency>
 
             <!-- ======================================================================== -->
@@ -208,16 +211,9 @@
             </dependency>
 
             <dependency>
-                <groupId>dk.sunepoulsen</groupId>
-                <artifactId>wiremock-utils</artifactId>
-                <version>${wiremock.utils.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>dk.sunepoulsen.mycash</groupId>
-                <artifactId>mc-service-test-core</artifactId>
-                <version>${mc-service-test-core.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
                 <scope>test</scope>
             </dependency>
 
