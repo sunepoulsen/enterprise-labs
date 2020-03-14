@@ -15,6 +15,7 @@
     <modules>
         <module>client</module>
         <module>service</module>
+        <module>boms</module>
     </modules>
 
     <properties>
