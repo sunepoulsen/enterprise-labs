@@ -4,7 +4,7 @@
 module tech.enterprise.labs.core.service {
     requires io.reactivex.rxjava2;
     requires java.validation;
-    requires log4j.over.slf4j;
+    requires org.apache.log4j;
     requires org.hibernate.validator;
     requires perf4j;
     requires slf4j.api;
@@ -12,5 +12,5 @@ module tech.enterprise.labs.core.service {
     requires spring.web;
     requires spring.webmvc;
     requires tech.enterprise.labs.core.client;
-    requires tomcat.embed.core;
+    requires org.apache.tomcat.embed.core;
 }
