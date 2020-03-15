@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import App from './app/App.vue'
+import router from './app/layout/Layout-Router'
+import store from './app/core/Store'
 
 import 'primevue/resources/themes/nova-light/theme.css'
 import 'primevue/resources/primevue.min.css'
