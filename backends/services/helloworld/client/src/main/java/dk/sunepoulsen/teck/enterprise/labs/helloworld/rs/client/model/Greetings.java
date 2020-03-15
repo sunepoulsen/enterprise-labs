@@ -27,4 +27,11 @@ public class Greetings implements BaseModel {
     public int hashCode() {
         return Objects.hash(message);
     }
+
+    @Override
+    public String toString() {
+        return "Greetings{" +
+                "message='" + message + '\'' +
+                '}';
+    }
 }
