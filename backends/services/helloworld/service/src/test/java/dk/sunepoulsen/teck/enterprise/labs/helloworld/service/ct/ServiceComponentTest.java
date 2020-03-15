@@ -1,6 +1,7 @@
 package dk.sunepoulsen.teck.enterprise.labs.helloworld.service.ct;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.generators.UUIDRequestIdGenerator;
 import dk.sunepoulsen.teck.enterprise.labs.helloworld.rs.client.model.Greetings;
 import dk.sunepoulsen.teck.enterprise.labs.helloworld.service.Application;
 import org.junit.Test;
@@ -27,11 +28,13 @@ public class ServiceComponentTest {
     @Test
     public void testGetGreetings_OK() throws Exception {
         Greetings expected = new Greetings();
-        expected.setMessage( "Hello World" );
+        expected.setMessage("Hello World");
 
-        mvc.perform(MockMvcRequestBuilders.get("/greetings"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expected)));
+        mvc.perform(MockMvcRequestBuilders.get("/greetings")
+            .header("X-Request-ID", new UUIDRequestIdGenerator().generateId())
+        )
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expected)));
     }
 }

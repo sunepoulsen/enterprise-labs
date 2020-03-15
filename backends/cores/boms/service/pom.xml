@@ -23,7 +23,7 @@
         <tel-service-core.version>1.0-0-SNAPSHOT</tel-service-core.version>
 
         <!-- Spring versions -->
-        <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+        <spring-boot.version>2.1.12.RELEASE</spring-boot.version>
         <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
         <spring-oauth2.version>2.4.0.RELEASE</spring-oauth2.version>
         <spring-jwt.version>1.1.0.RELEASE</spring-jwt.version>
