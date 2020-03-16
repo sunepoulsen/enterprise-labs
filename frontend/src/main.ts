@@ -6,6 +6,7 @@ import store from './app/core/Store'
 import 'primevue/resources/themes/nova-light/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
+import 'primeflex/primeflex.css'
 
 // Import PrimeVUE UI components
 import Panel from 'primevue/panel'
