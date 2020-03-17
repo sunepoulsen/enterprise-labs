@@ -1,7 +1,9 @@
 <template>
-    <div>
-        Header
-    </div>
+    <Card>
+        <template slot="title">
+            Tech Enterprise Labs
+        </template>
+    </Card>
 </template>
 
 <script lang="ts">
@@ -10,6 +12,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

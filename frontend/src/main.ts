@@ -3,14 +3,16 @@ import App from './app/App.vue'
 import router from './app/layout/Layout-Router'
 import store from './app/core/Store'
 
-import 'primevue/resources/themes/nova-light/theme.css'
+import 'primevue/resources/themes/rhea/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 
 // Import PrimeVUE UI components
+import Card from 'primevue/card'
 import Panel from 'primevue/panel'
 
+Vue.component('Card', Card)
 Vue.component('Panel', Panel)
 
 Vue.config.productionTip = false

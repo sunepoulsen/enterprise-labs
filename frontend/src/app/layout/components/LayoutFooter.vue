@@ -1,7 +1,9 @@
 <template>
-    <div>
-        Footer
-    </div>
+    <Card>
+        <template slot="content">
+            Footer
+        </template>
+    </Card>
 </template>
 
 <script lang="ts">
