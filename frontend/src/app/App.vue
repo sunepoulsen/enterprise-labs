@@ -1,26 +1,30 @@
 <template>
-  <div id="app">
-    <Layout/>
-  </div>
+    <div id="app">
+        <Layout/>
+    </div>
 </template>
 
 <script lang="ts">
 // @ is an alias to /src
 import Layout from '@/app/layout/Layout.vue'
+import { Component, Vue } from 'vue-property-decorator'
 
-export default {
-  name: 'App',
+@Component({
   components: {
     Layout
   }
+})
+export default class App extends Vue {
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
+    #app {
+        @import '@/assets/styles/global.scss';
+
+        font-family: $fontFamily;
+        -webkit-font-smoothing: $fontSmoothingWebKit;
+        -moz-osx-font-smoothing: $fontSmoothingMoxOsx;
+        color: $fontColor;
+    }
 </style>

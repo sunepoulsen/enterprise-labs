@@ -10,8 +10,10 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'LayoutNavigator'
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class LayoutNavigator extends Vue {
 }
 </script>
 

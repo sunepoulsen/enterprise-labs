@@ -7,8 +7,10 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'LayoutFooter'
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component
+export default class LayoutFooter extends Vue {
 }
 </script>
 

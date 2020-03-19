@@ -2,7 +2,7 @@
     <div id="app">
         <div class="p-grid nested-grid">
             <div class="p-col-12">
-                <LayoutHeader/>
+                <layout-header/>
             </div>
             <div class="p-col-12">
                 <div class="p-grid">
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="p-col-12">
-                <LayoutFooter/>
+                <layout-footer/>
             </div>
         </div>
     </div>
@@ -27,13 +27,16 @@ import LayoutHeader from './components/LayoutHeader.vue'
 import LayoutNavigator from './components/LayoutNavigator.vue'
 import LayoutFooter from './components/LayoutFooter.vue'
 
-export default {
-  name: 'Layout',
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
   components: {
     LayoutHeader,
     LayoutNavigator,
     LayoutFooter
   }
+})
+export default class Layout extends Vue {
 }
 </script>
 
