@@ -1,12 +1,23 @@
 <template>
-    <Card>
-        <template slot="title">
-            {{ settings.name }}
-        </template>
-        <template slot="content">
-            {{ settings.version }}
-        </template>
-    </Card>
+    <div class="p-grid nested-grid layout-header">
+        <div class="p-col-12">
+            <div class="p-grid">
+                <div class="p-col-10">
+                    <div class="name-section">
+                        <h1>{{ settings.name }}</h1>
+                    </div>
+                </div>
+                <div class="p-col-2">
+                    <div class="nav-section">
+                        <ul>
+                            <li><router-link to="/">Home</router-link></li>
+                            <li><router-link to="/about">About</router-link></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
@@ -25,5 +36,22 @@ export default class LayoutHeader extends Vue {
 </script>
 
 <style lang="scss">
+    @import '@/assets/styles/layout-header.scss';
 
+    .layout-header {
+        background-color: $backgroundColor;
+    }
+
+    .name-section {
+        color: $textColor;
+    }
+
+    div > h1 {
+        padding-left: $applicationNameLeftSpace;
+        font-size: $applicationNameFontSize;
+    }
+
+    .nav-section {
+        color: $textColor;
+    }
 </style>

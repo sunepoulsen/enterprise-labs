@@ -14,9 +14,6 @@
                     </div>
                 </div>
             </div>
-            <div class="p-col-12">
-                <layout-footer/>
-            </div>
         </div>
     </div>
 </template>
@@ -25,15 +22,13 @@
 // @ is an alias to /src
 import LayoutHeader from './components/LayoutHeader.vue'
 import LayoutNavigator from './components/LayoutNavigator.vue'
-import LayoutFooter from './components/LayoutFooter.vue'
 
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
   components: {
     LayoutHeader,
-    LayoutNavigator,
-    LayoutFooter
+    LayoutNavigator
   }
 })
 export default class Layout extends Vue {
