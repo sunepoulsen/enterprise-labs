@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../modules/home/pages/Home.vue'
 import About from '@/app/modules/about/pages/About.vue'
+import VueComponentRenderPage from '@/app/labs/vue/component-rendering/pages/VueComponentRenderPage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -15,6 +17,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
+  },
+  {
+    path: '/labs/vue/component-rendering',
+    name: 'Component Rendering',
+    component: VueComponentRenderPage
   }
 
   // {

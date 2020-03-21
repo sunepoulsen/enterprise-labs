@@ -1,9 +1,8 @@
 <template>
     <div id="nav">
-        <Panel header="Links">
+        <Panel header="Vue">
             <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/about">About</router-link></li>
+                <li><router-link to="/labs/vue/component-rendering">Component Rendering</router-link></li>
             </ul>
         </Panel>
     </div>
