@@ -7,46 +7,16 @@
                 <Card>
                     <template slot="title">Basic types</template>
                     <template slot="content">
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">String:</div>
-                            <div class="p-col">{{ stringValue }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">String with HTML:</div>
-                            <div class="p-col">{{ htmlValue }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">Integer:</div>
-                            <div class="p-col">{{ intValue }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">Float:</div>
-                            <div class="p-col">{{ floatValue }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">Float with 2 decimals:</div>
-                            <div class="p-col">{{ floatValue.toFixed(2) }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">Hex:</div>
-                            <div class="p-col">{{ hexValue }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">Binary:</div>
-                            <div class="p-col">{{ binaryValue }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">Octal:</div>
-                            <div class="p-col">{{ octValue }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">Calculated value:</div>
-                            <div class="p-col">{{ 22 / 7 }}</div>
-                        </div>
-                        <div class="p-grid">
-                            <div class="p-col-fixed label-col">Object value:</div>
-                            <div class="p-col">{{ accountValue }}</div>
-                        </div>
+                        <label-grid label="String" :width="labelWidth">{{ stringValue }}</label-grid>
+                        <label-grid label="String with HTML" :width="labelWidth">{{ htmlValue }}</label-grid>
+                        <label-grid label="Integer" :width="labelWidth">{{ intValue }}</label-grid>
+                        <label-grid label="Float" :width="labelWidth">{{ floatValue }}</label-grid>
+                        <label-grid label="Float with 2 decimals" :width="labelWidth">{{ floatValue.toFixed(2) }}</label-grid>
+                        <label-grid label="Hex" :width="labelWidth">{{ hexValue }}</label-grid>
+                        <label-grid label="Binary" :width="labelWidth">{{ binaryValue }}</label-grid>
+                        <label-grid label="Octal" :width="labelWidth">{{ octValue }}</label-grid>
+                        <label-grid label="Calculated value" :width="labelWidth">{{ 22 / 7 }}</label-grid>
+                        <label-grid label="Object value" :width="labelWidth">{{ accountValue }}</label-grid>
                     </template>
                 </Card>
             </div>
@@ -77,6 +47,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import LabelGrid from '@/app/shared/components/layouts/LabelGrid.vue'
 
 class Account {
   id: number;
@@ -88,8 +59,14 @@ class Account {
   }
 }
 
-@Component
+@Component({
+  components: {
+    LabelGrid
+  }
+})
 export default class VueComponentRenderPage extends Vue {
+  labelWidth = '180px'
+
   private stringValue: string;
   private htmlValue: string;
   private intValue: number;
@@ -128,7 +105,4 @@ export default class VueComponentRenderPage extends Vue {
 </script>
 
 <style scoped>
-    .label-col {
-        width: 180px;
-    }
 </style>
