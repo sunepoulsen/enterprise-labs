@@ -1,19 +1,25 @@
 <template>
     <div id="nav">
-        <Panel header="Links">
+        <Panel v-for="labgroup in settings.labs()" v-bind:key="labgroup.name" :header="labgroup.name">
             <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/about">About</router-link></li>
+                <li v-for="lab in labgroup.labs" v-bind:key="lab.name"><router-link :to="lab.route.path">{{ lab.name }}</router-link></li>
             </ul>
         </Panel>
     </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { AppSettings } from '@/app/configs/AppSettings'
 
 @Component
 export default class LayoutNavigator extends Vue {
+  @Prop() private settings!: AppSettings
+
+  constructor () {
+    super()
+    this.settings = new AppSettings()
+  }
 }
 </script>
 
