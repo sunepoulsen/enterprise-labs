@@ -9,4 +9,5 @@ module tech.enterprise.labs.helloworld.service {
     requires spring.webmvc;
     requires tech.enterprise.labs.helloworld.client;
     requires spring.web;
+    requires tech.enterprise.labs.core.service;
 }

@@ -1,22 +1,49 @@
 /**
  * Global settings of the application.
  */
-import { Lab } from '@/app/configs/model/Lab'
-import { LabGroup } from '@/app/configs/model/LabGroup'
-import { LabRoute } from '@/app/configs/model/LabRoute'
+import { LabGroup } from './model/Labs'
 
 // Lab components
 import VueComponentRenderPage from '@/app/labs/vue/component-rendering/pages/VueComponentRenderPage.vue'
+import HelloWorldIntegration from '@/app/labs/integrations/helloworld/pages/HelloWorldIntegration.vue'
 
 export class AppSettings {
+  private backendBaseUrl = '/api'
   name = 'Tech Enterprise Labs';
   version = '1.0.0';
 
-  labs () {
+  labs (): LabGroup[] {
     return [
-      new LabGroup('Vue', [
-        new Lab('Component Rendering', new LabRoute('/labs/vue/component-rendering', VueComponentRenderPage))
-      ])
+      {
+        name: 'Vue',
+        labs: [
+          {
+            name: 'Component Rendering',
+            route: {
+              path: '/labs/vue/component-rendering',
+              component: VueComponentRenderPage
+            }
+          }
+        ]
+      },
+      {
+        name: 'Integrations',
+        labs: [
+          {
+            name: 'Hello World',
+            route: {
+              path: '/labs/integrations/helloworld',
+              component: HelloWorldIntegration
+            }
+          }
+        ]
+      }
     ]
+  }
+
+  externalServices () {
+    return {
+      helloworld: this.backendBaseUrl + '/helloworld'
+    }
   }
 }
