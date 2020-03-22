@@ -1,10 +1,13 @@
 <template>
     <div id="nav">
-        <Panel v-for="labgroup in settings.labs()" v-bind:key="labgroup.name" :header="labgroup.name">
-            <ul>
-                <li v-for="lab in labgroup.labs" v-bind:key="lab.name"><router-link :to="lab.route.path">{{ lab.name }}</router-link></li>
-            </ul>
-        </Panel>
+        <div v-for="labgroup in settings.labs()" v-bind:key="labgroup.name">
+            <Panel :header="labgroup.name">
+                <ul>
+                    <li v-for="lab in labgroup.labs" v-bind:key="lab.name"><router-link :to="lab.route.path">{{ lab.name }}</router-link></li>
+                </ul>
+            </Panel>
+            <p/>
+        </div>
     </div>
 </template>
 

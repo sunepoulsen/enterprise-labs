@@ -9,9 +9,11 @@ import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
 
 // Import PrimeVUE UI components
+import Button from 'primevue/button'
 import Card from 'primevue/card'
 import Panel from 'primevue/panel'
 
+Vue.component('Button', Button)
 Vue.component('Card', Card)
 Vue.component('Panel', Panel)
 

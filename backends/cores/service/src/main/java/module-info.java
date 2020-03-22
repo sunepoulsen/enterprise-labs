@@ -2,6 +2,7 @@
  * Module for the core client that is used by all services.
  */
 module tech.enterprise.labs.core.service {
+    exports dk.sunepoulsen.teck.enterprise.labs.core.service.domain.requests;
     requires io.reactivex.rxjava2;
     requires java.validation;
     requires org.apache.log4j;
