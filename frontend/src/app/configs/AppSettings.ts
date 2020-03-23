@@ -4,11 +4,11 @@
 import { LabGroup } from './model/Labs'
 
 // Lab components
-import VueComponentRenderPage from '@/app/labs/vue/component-rendering/pages/VueComponentRenderPage.vue'
-import HelloWorldIntegration from '@/app/labs/integrations/helloworld/pages/HelloWorldIntegration.vue'
+import VueComponentRenderLab from '@/app/labs/vue/component-rendering/pages/VueComponentRenderLab.vue'
+import HelloWorldLab from '@/app/labs/integrations/helloworld/pages/HelloWorldLab.vue'
 
 export class AppSettings {
-  private backendBaseUrl = '/api'
+  private backendBaseUrl = 'http://localhost:13100/api'
   name = 'Tech Enterprise Labs';
   version = '1.0.0';
 
@@ -21,7 +21,7 @@ export class AppSettings {
             name: 'Component Rendering',
             route: {
               path: '/labs/vue/component-rendering',
-              component: VueComponentRenderPage
+              component: VueComponentRenderLab
             }
           }
         ]
@@ -33,7 +33,7 @@ export class AppSettings {
             name: 'Hello World',
             route: {
               path: '/labs/integrations/helloworld',
-              component: HelloWorldIntegration
+              component: HelloWorldLab
             }
           }
         ]

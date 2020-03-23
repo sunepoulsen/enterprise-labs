@@ -12,10 +12,14 @@ import 'primeflex/primeflex.css'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
 import Panel from 'primevue/panel'
+import TabView from 'primevue/tabview'
+import TabPanel from 'primevue/tabpanel'
 
 Vue.component('Button', Button)
 Vue.component('Card', Card)
 Vue.component('Panel', Panel)
+Vue.component('TabView', TabView)
+Vue.component('TabPanel', TabPanel)
 
 Vue.config.productionTip = false
 
