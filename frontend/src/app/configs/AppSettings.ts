@@ -8,7 +8,7 @@ import VueComponentRenderLab from '@/app/labs/vue/component-rendering/pages/VueC
 import HelloWorldLab from '@/app/labs/integrations/helloworld/pages/HelloWorldLab.vue'
 
 export class AppSettings {
-  private backendBaseUrl = 'http://localhost:13100/api'
+  private backendBaseUrl = '/api'
   name = 'Tech Enterprise Labs';
   version = '1.0.0';
 

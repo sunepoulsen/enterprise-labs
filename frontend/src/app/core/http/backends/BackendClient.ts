@@ -17,13 +17,6 @@ export class BackendClient {
   }
 
   static mapBackendError (error: any): HttpResponse<BackendError> {
-    console.log('Backend error: ', {
-      error: error.error,
-      request: error.request,
-      response: error.response,
-      message: error.message
-    })
-
     if (!error) {
       throw new Error(error.message)
     }
