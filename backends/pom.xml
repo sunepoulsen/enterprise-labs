@@ -6,7 +6,7 @@
     <modules>
         <module>images</module>
         <module>cores</module>
-        <module>services</module>
+        <module>labs</module>
     </modules>
     <parent>
         <groupId>dk.sunepoulsen.tech-enterprise-labs</groupId>
