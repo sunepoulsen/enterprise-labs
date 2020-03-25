@@ -41,11 +41,7 @@ function addLabRoutes (routes: Array<RouteConfig>) {
 
   for (const group of settings.labs()) {
     for (const lab of group.labs) {
-      labRoutes.push({
-        path: lab.route.path,
-        name: lab.name,
-        component: lab.route.component
-      })
+      labRoutes.push(lab.route)
     }
   }
 
