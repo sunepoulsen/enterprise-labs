@@ -1,4 +1,4 @@
-import { Component } from 'vue-router/types/router'
+import { RouteConfig } from 'vue-router'
 
 /**
  * Representation of a lab group
@@ -13,13 +13,5 @@ export interface LabGroup {
  */
 export interface Lab {
   name: string;
-  route: LabRoute;
-}
-
-/**
- * Representation of a route to a lab
- */
-export interface LabRoute {
-  path: string;
-  component: Component;
+  route: RouteConfig;
 }
