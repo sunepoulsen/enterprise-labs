@@ -1,0 +1,18 @@
+version: "2"
+services:
+  helloworld-backend-service:
+    image: helloworld-backend-service:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+
+  tel-dev-proxy:
+    image: nginx:latest
+    volumes:
+      - "./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "./nginx/nginx-cors.conf:/etc/nginx/nginx-cors.conf:ro"
+      - "./nginx/nginx-service.conf:/etc/nginx/nginx-service.conf:ro"
+    ports:
+      - "13200:80"
+    links:
+      - helloworld-backend-service

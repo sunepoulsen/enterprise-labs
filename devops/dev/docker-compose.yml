@@ -8,9 +8,6 @@ services:
 
   tech-enterprise-labs-web:
     image: tech-enterprise-labs-web:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=dev
-      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
 
   tel-dev-proxy:
     image: nginx:latest
