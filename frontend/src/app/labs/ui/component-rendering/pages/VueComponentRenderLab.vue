@@ -15,8 +15,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import VueComponentRender from '@/app/labs/vue/component-rendering/components/VueComponentRender.vue'
-import VueComponentRenderDoc from '@/app/labs/vue/component-rendering/components/VueComponentRenderDoc.vue'
+import VueComponentRender from '@/app/labs/ui/component-rendering/components/VueComponentRender.vue'
+import VueComponentRenderDoc from '@/app/labs/ui/component-rendering/components/VueComponentRenderDoc.vue'
 
 @Component({
   components: {

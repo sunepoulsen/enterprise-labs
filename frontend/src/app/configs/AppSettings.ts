@@ -4,7 +4,8 @@
 import { LabGroup } from './model/Labs'
 
 // Lab components
-import VueComponentRenderLab from '@/app/labs/vue/component-rendering/pages/VueComponentRenderLab.vue'
+import VueComponentRenderLab from '@/app/labs/ui/component-rendering/pages/VueComponentRenderLab.vue'
+import LogicCalendarLab from '@/app/labs/ui/calendar/pages/LogicCalendarLab.vue'
 import HelloWorldLab from '@/app/labs/integrations/helloworld/pages/HelloWorldLab.vue'
 
 export class AppSettings {
@@ -15,13 +16,20 @@ export class AppSettings {
   labs (): LabGroup[] {
     return [
       {
-        name: 'Vue',
+        name: 'Frontend',
         labs: [
           {
             name: 'Component Rendering',
             route: {
-              path: '/labs/vue/component-rendering',
+              path: '/labs/ui/component-rendering',
               component: VueComponentRenderLab
+            }
+          },
+          {
+            name: 'Date & Times',
+            route: {
+              path: '/labs/ui/calendar',
+              component: LogicCalendarLab
             }
           }
         ]
