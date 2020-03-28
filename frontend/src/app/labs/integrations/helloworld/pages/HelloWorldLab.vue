@@ -1,15 +1,17 @@
 <template>
-    <div>
-        <h1>Hello World Integration</h1>
+    <div class="p-grid p-justify-center">
+        <div class="p-col-5">
+            <h1>Hello World Integration</h1>
 
-        <tab-view>
-            <tab-panel header="Hello World">
-                <hello-world-integration/>
-            </tab-panel>
-            <tab-panel header="Doc">
-                <hello-world-doc/>
-            </tab-panel>
-        </tab-view>
+            <tab-view>
+                <tab-panel header="Hello World">
+                    <hello-world-integration/>
+                </tab-panel>
+                <tab-panel header="Doc">
+                    <hello-world-doc/>
+                </tab-panel>
+            </tab-view>
+        </div>
     </div>
 </template>
 

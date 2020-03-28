@@ -2,10 +2,13 @@
     <div class="p-grid nested-grid layout-header">
         <div class="p-col-12">
             <div class="p-grid">
-                <div class="p-col-10">
+                <div class="p-col-2">
                     <div class="name-section">
                         <h1>{{ settings.name }}</h1>
                     </div>
+                </div>
+                <div class="p-col-8">
+                    <MegaMenu :model="items" />
                 </div>
                 <div class="p-col-2">
                     <div class="nav-section">
@@ -27,10 +30,12 @@ import { AppSettings } from '@/app/configs/AppSettings'
 @Component
 export default class LayoutHeader extends Vue {
   @Prop() private settings!: AppSettings
+  private items: any;
 
   constructor () {
     super()
     this.settings = new AppSettings()
+    this.items = this.settings.navigationMenu()
   }
 }
 </script>
@@ -47,8 +52,9 @@ export default class LayoutHeader extends Vue {
     }
 
     div > h1 {
-        padding-left: $applicationNameLeftSpace;
-        font-size: $applicationNameFontSize;
+        margin: 0;
+        //padding-left: $applicationNameLeftSpace;
+        //font-size: $applicationNameFontSize;
     }
 
     .nav-section {

@@ -12,16 +12,22 @@ import 'primeflex/primeflex.css'
 import Button from 'primevue/button'
 import Card from 'primevue/card'
 import InputText from 'primevue/inputtext'
+import MegaMenu from 'primevue/megamenu'
 import Panel from 'primevue/panel'
+import OverlayPanel from 'primevue/overlaypanel'
 import TabView from 'primevue/tabview'
 import TabPanel from 'primevue/tabpanel'
+import Toolbar from 'primevue/toolbar'
 
 Vue.component('Button', Button)
 Vue.component('Card', Card)
 Vue.component('InputText', InputText)
+Vue.component('MegaMenu', MegaMenu)
 Vue.component('Panel', Panel)
+Vue.component('OverlayPanel', OverlayPanel)
 Vue.component('TabView', TabView)
 Vue.component('TabPanel', TabPanel)
+Vue.component('Toolbar', Toolbar)
 
 Vue.config.productionTip = false
 
