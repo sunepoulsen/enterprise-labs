@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../modules/home/pages/Home.vue'
 import About from '@/app/modules/about/pages/About.vue'
-import { AppSettings } from '@/app/configs/AppSettings'
+import VueComponentRenderLab from '@/app/labs/ui/component-rendering/pages/VueComponentRenderLab.vue'
+import LogicCalendarLab from '@/app/labs/ui/calendar/pages/LogicCalendarLab.vue'
+import HelloWorldLab from '@/app/labs/integrations/helloworld/pages/HelloWorldLab.vue'
 
 Vue.use(VueRouter)
 
@@ -11,6 +13,18 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/labs/ui/component-rendering',
+    component: VueComponentRenderLab
+  },
+  {
+    path: '/labs/ui/calendar',
+    component: LogicCalendarLab
+  },
+  {
+    path: '/labs/integrations/helloworld',
+    component: HelloWorldLab
   },
   {
     path: '/about',
@@ -28,30 +42,10 @@ const routes: Array<RouteConfig> = [
   // }
 ]
 
-/**
- * Adds all labs from AppSettings to a RouteConfig list as a RouteConfig.
- *
- * @param routes The RouteConfig list to add the lab RouteConfig to.
- *
- * @returns The concatenated list of RouteConfig's.
- */
-function addLabRoutes (routes: Array<RouteConfig>) {
-  const labRoutes: Array<RouteConfig> = []
-  const settings: AppSettings = new AppSettings()
-
-  for (const group of settings.labs()) {
-    for (const lab of group.labs) {
-      labRoutes.push(lab.route)
-    }
-  }
-
-  return routes.concat(labRoutes)
-}
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: addLabRoutes(routes)
+  routes: routes
 })
 
 export default router

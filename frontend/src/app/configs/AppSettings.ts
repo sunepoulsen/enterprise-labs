@@ -1,49 +1,198 @@
 /**
  * Global settings of the application.
  */
-import { LabGroup } from './model/Labs'
-
-// Lab components
-import VueComponentRenderLab from '@/app/labs/ui/component-rendering/pages/VueComponentRenderLab.vue'
-import LogicCalendarLab from '@/app/labs/ui/calendar/pages/LogicCalendarLab.vue'
-import HelloWorldLab from '@/app/labs/integrations/helloworld/pages/HelloWorldLab.vue'
 
 export class AppSettings {
   private backendBaseUrl = '/api'
   name = 'Tech Enterprise Labs';
   version = '1.0.0';
 
-  labs (): LabGroup[] {
+  navigationMenu () {
     return [
       {
-        name: 'Frontend',
-        labs: [
-          {
-            name: 'Component Rendering',
-            route: {
-              path: '/labs/ui/component-rendering',
-              component: VueComponentRenderLab
+        label: 'Labs',
+        items: [
+          [
+            {
+              label: 'Frontend',
+              items: [
+                {
+                  label: 'Component Rendering',
+                  to: '/labs/ui/component-rendering'
+                },
+                {
+                  label: 'Date & Times',
+                  to: '/labs/ui/calendar'
+                }
+              ]
             }
-          },
-          {
-            name: 'Date & Times',
-            route: {
-              path: '/labs/ui/calendar',
-              component: LogicCalendarLab
+          ],
+          [
+            {
+              label: 'Integrations',
+              items: [
+                {
+                  label: 'Hello World',
+                  to: '/labs/integrations/helloworld'
+                }
+              ]
             }
-          }
+          ]
         ]
       },
       {
-        name: 'Integrations',
-        labs: [
-          {
-            name: 'Hello World',
-            route: {
-              path: '/labs/integrations/helloworld',
-              component: HelloWorldLab
+        label: 'Vue',
+        items: [
+          [
+            {
+              label: 'CLI Plugins',
+              items: [
+                {
+                  label: 'babel',
+                  url: 'https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel',
+                  target: '_blank'
+                },
+                {
+                  label: 'typescript',
+                  url: 'https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript',
+                  target: '_blank'
+                },
+                {
+                  label: 'router',
+                  url: 'https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router',
+                  target: '_blank'
+                },
+                {
+                  label: 'vuex',
+                  url: 'https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex',
+                  target: '_blank'
+                },
+                {
+                  label: 'eslint',
+                  url: 'https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint',
+                  target: '_blank'
+                },
+                {
+                  label: 'unit-mocha',
+                  url: 'https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-mocha',
+                  target: '_blank'
+                },
+                {
+                  label: 'e2e-cypress',
+                  url: 'https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-e2e-cypress',
+                  target: '_blank'
+                }
+              ]
             }
-          }
+          ],
+          [
+            {
+              label: 'Essential',
+              items: [
+                {
+                  label: 'Core Docs',
+                  url: 'https://vuejs.org',
+                  target: '_blank'
+                },
+                {
+                  label: 'Forum',
+                  url: 'https://forum.vuejs.org',
+                  target: '_blank'
+                },
+                {
+                  label: 'Community Chat',
+                  url: 'https://chat.vuejs.org',
+                  target: '_blank'
+                },
+                {
+                  label: 'Twitter',
+                  url: 'https://twitter.com/vuejs',
+                  target: '_blank'
+                },
+                {
+                  label: 'News',
+                  url: 'https://news.vuejs.org',
+                  target: '_blank'
+                }
+              ]
+            }
+          ],
+          [
+            {
+              label: 'Ecosystem',
+              items: [
+                {
+                  label: 'vue-router',
+                  url: 'https://router.vuejs.org',
+                  target: '_blank'
+                },
+                {
+                  label: 'vuex',
+                  url: 'https://vuex.vuejs.org',
+                  target: '_blank'
+                },
+                {
+                  label: 'vue-devtools',
+                  url: 'https://github.com/vuejs/vue-devtools#vue-devtools',
+                  target: '_blank'
+                },
+                {
+                  label: 'vue-loader',
+                  url: 'https://vue-loader.vuejs.org',
+                  target: '_blank'
+                },
+                {
+                  label: 'awesome-vue',
+                  url: 'https://github.com/vuejs/awesome-vue',
+                  target: '_blank'
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        label: 'Frontend',
+        items: [
+          [
+            {
+              label: 'Standards',
+              items: [
+                {
+                  label: 'HTML 5.2',
+                  url: 'https://www.w3.org/TR/html52/',
+                  target: '_blank'
+                },
+                {
+                  label: 'CSS 2.2',
+                  url: 'https://www.w3.org/TR/2016/WD-CSS22-20160412/',
+                  target: '_blank'
+                }
+              ]
+            },
+            {
+              label: 'Prime VUE',
+              items: [
+                {
+                  label: 'Demo',
+                  url: 'https://primefaces.org/primevue/showcase',
+                  target: '_blank'
+                }
+              ]
+            }
+          ],
+          [
+            {
+              label: 'Libraries',
+              items: [
+                {
+                  label: 'Date & Times',
+                  url: 'https://momentjscom.readthedocs.io/en/latest/',
+                  target: '_blank'
+                }
+              ]
+            }
+          ]
         ]
       }
     ]

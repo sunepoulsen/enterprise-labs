@@ -1,15 +1,17 @@
 <template>
-    <div>
-        <h1>Date & Times</h1>
+    <div class="p-grid p-justify-center">
+        <div class="p-col-5">
+            <h1>Date & Times</h1>
 
-        <tab-view>
-            <tab-panel header="Date & Time">
-                <logic-calendar-date-time/>
-            </tab-panel>
-            <tab-panel header="Doc">
-                <logic-calendar-doc/>
-            </tab-panel>
-        </tab-view>
+            <tab-view>
+                <tab-panel header="Date & Time">
+                    <logic-calendar-date-time/>
+                </tab-panel>
+                <tab-panel header="Doc">
+                    <logic-calendar-doc/>
+                </tab-panel>
+            </tab-view>
+        </div>
     </div>
 </template>
 
