@@ -1,9 +1,35 @@
-// Font styles
+//===========================================================================================
+//                        Global fonts
+//===========================================================================================
 
+// Variables
 $fontFamily: Avenir, Helvetica, Arial, sans-serif;
 $fontSmoothingWebKit: antialiased;
 $fontSmoothingMoxOsx: grayscale;
 $fontColor: #2c3e50;
 
+//===========================================================================================
+//                        Components
+//===========================================================================================
+
 // Component margins
 $componentMarginSpace: 10px;
+
+// Style classes
+.tel-right-space {
+  margin-right: $componentMarginSpace;
+}
+
+//===========================================================================================
+//                        Code style
+//===========================================================================================
+
+// Variables
+$codeFontFamily: "Courier New", Courier, monospace;
+$codeTextColor: #6c8999;
+
+// Style classes
+.text-code {
+  font-family: $codeFontFamily;
+  color: $codeTextColor;
+}

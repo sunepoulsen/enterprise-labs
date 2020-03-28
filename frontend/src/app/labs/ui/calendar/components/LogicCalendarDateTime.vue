@@ -4,9 +4,13 @@
             <template slot="title">Timestamp</template>
 
             <template slot="content">
-                <InputText class="date-time-field tel-right-space" type="text" v-model="dateTimeField"/>
-                <Button class="p-button-raised tel-right-space" label="Calculate" @click="calculateTimestapValues" />
-                <Button class="p-button-raised" label="Now" @click="updateDateWithCurrent" />
+                Enter a timestamp in the format <span class="text-code">DD-MM-YYYY HH:mm:ss.SSS ZZ</span> or an epoch.
+                <p/>
+                <label-grid label="Timestamp or epoch" :width="labelWidth">
+                    <InputText class="date-time-field tel-right-space" type="text" v-model="dateTimeField"/>
+                    <Button class="p-button-raised tel-right-space" label="Calculate" @click="calculateTimestapValues" />
+                    <Button class="p-button-raised" label="Now" @click="updateDateWithCurrent" />
+                </label-grid>
                 <p/>
                 <label-grid label="Epoch" :width="labelWidth">{{ epochField }}</label-grid>
                 <label-grid label="Date" :width="labelWidth">{{ dateField }}</label-grid>
@@ -34,7 +38,7 @@ import LabelGrid from '@/app/shared/components/layouts/LabelGrid.vue'
 export default class LogicCalendarDateTime extends Vue {
   // Constants
   static dateTimeFormat = 'DD-MM-YYYY HH:mm:ss.SSS ZZ';
-  labelWidth = '140px';
+  labelWidth = '160px';
 
   // Data model
   private dateTime: Moment = moment.invalid();
@@ -82,9 +86,5 @@ export default class LogicCalendarDateTime extends Vue {
 
     .date-time-field {
         width: 180pt;
-    }
-
-    .tel-right-space {
-        margin-right: $componentMarginSpace;
     }
 </style>

@@ -4,9 +4,9 @@
 import { LabGroup } from './model/Labs'
 
 // Lab components
-import VueComponentRenderLab from '@/app/labs/vue/component-rendering/pages/VueComponentRenderLab.vue'
+import VueComponentRenderLab from '@/app/labs/ui/component-rendering/pages/VueComponentRenderLab.vue'
+import LogicCalendarLab from '@/app/labs/ui/calendar/pages/LogicCalendarLab.vue'
 import HelloWorldLab from '@/app/labs/integrations/helloworld/pages/HelloWorldLab.vue'
-import LogicCalendarLab from '@/app/labs/logic/calendar/pages/LogicCalendarLab.vue'
 
 export class AppSettings {
   private backendBaseUrl = '/api'
@@ -16,24 +16,19 @@ export class AppSettings {
   labs (): LabGroup[] {
     return [
       {
-        name: 'Vue',
+        name: 'Frontend',
         labs: [
           {
             name: 'Component Rendering',
             route: {
-              path: '/labs/vue/component-rendering',
+              path: '/labs/ui/component-rendering',
               component: VueComponentRenderLab
             }
-          }
-        ]
-      },
-      {
-        name: 'Frontend logic',
-        labs: [
+          },
           {
             name: 'Date & Times',
             route: {
-              path: '/labs/logic/calendar',
+              path: '/labs/ui/calendar',
               component: LogicCalendarLab
             }
           }

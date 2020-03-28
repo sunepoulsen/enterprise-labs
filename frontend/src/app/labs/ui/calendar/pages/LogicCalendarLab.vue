@@ -15,8 +15,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import LogicCalendarDoc from '@/app/labs/logic/calendar/components/LogicCalendarDoc.vue'
-import LogicCalendarDateTime from '@/app/labs/logic/calendar/components/LogicCalendarDateTime.vue'
+import LogicCalendarDoc from '@/app/labs/ui/calendar/components/LogicCalendarDoc.vue'
+import LogicCalendarDateTime from '@/app/labs/ui/calendar/components/LogicCalendarDateTime.vue'
 
 @Component({
   components: {
