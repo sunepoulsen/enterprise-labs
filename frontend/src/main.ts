@@ -11,6 +11,9 @@ import 'primeflex/primeflex.css'
 // Import PrimeVUE UI components
 import Button from 'primevue/button'
 import Card from 'primevue/card'
+import Column from 'primevue/column'
+import ColumnGroup from 'primevue/columngroup'
+import DataTable from 'primevue/datatable'
 import InputText from 'primevue/inputtext'
 import MegaMenu from 'primevue/megamenu'
 import Panel from 'primevue/panel'
@@ -21,6 +24,9 @@ import Toolbar from 'primevue/toolbar'
 
 Vue.component('Button', Button)
 Vue.component('Card', Card)
+Vue.component('Column', Column)
+Vue.component('ColumnGroup', ColumnGroup)
+Vue.component('DataTable', DataTable)
 Vue.component('InputText', InputText)
 Vue.component('MegaMenu', MegaMenu)
 Vue.component('Panel', Panel)

@@ -37,7 +37,19 @@ export class AppSettings {
                 }
               ]
             }
+          ],
+          [
+            {
+              label: 'Apps',
+              items: [
+                {
+                  label: 'MyCash',
+                  to: '/labs/mycash'
+                }
+              ]
+            }
           ]
+
         ]
       },
       {
