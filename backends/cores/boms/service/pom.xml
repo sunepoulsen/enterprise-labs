@@ -24,7 +24,7 @@
 
         <!-- Spring versions -->
         <spring-boot.version>2.1.12.RELEASE</spring-boot.version>
-        <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
+        <spring-framework.version>5.1.13.RELEASE</spring-framework.version>
         <spring-oauth2.version>2.4.0.RELEASE</spring-oauth2.version>
         <spring-jwt.version>1.1.0.RELEASE</spring-jwt.version>
 
@@ -242,6 +242,24 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>tel-service-core</artifactId>
+        </dependency>
+
+        <!-- ======================================================================== -->
+        <!--            Jackson                                                       -->
+        <!-- ======================================================================== -->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <!-- ======================================================================== -->
+        <!--            Rx Java2                                                      -->
+        <!-- ======================================================================== -->
+
+        <dependency>
+            <groupId>io.reactivex.rxjava2</groupId>
+            <artifactId>rxjava</artifactId>
         </dependency>
 
         <!-- ======================================================================== -->

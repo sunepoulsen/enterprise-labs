@@ -13,5 +13,5 @@ module tech.enterprise.labs.core.service {
     requires spring.web;
     requires spring.webmvc;
     requires tech.enterprise.labs.core.client;
-    requires org.apache.tomcat.embed.core;
+    requires static org.apache.tomcat.embed.core;
 }

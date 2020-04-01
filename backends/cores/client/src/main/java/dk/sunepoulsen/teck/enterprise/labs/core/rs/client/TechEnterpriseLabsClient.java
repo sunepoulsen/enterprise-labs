@@ -2,8 +2,11 @@ package dk.sunepoulsen.teck.enterprise.labs.core.rs.client;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientException;
+import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientNotImplementedException;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.generators.RequestIdGenerator;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.generators.UUIDRequestIdGenerator;
+import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.model.ServiceError;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -50,11 +53,47 @@ public class TechEnterpriseLabsClient {
                 .build();
 
         return client.sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString())
-                .thenApply(HttpResponse::body)
-                .thenApply(s -> toJson(s, clazz));
+            .thenApply(this::verifyResponseAndExtractBody)
+            .thenApply(s -> decodeJson(s, clazz));
     }
 
-    private <T> T toJson(String s, Class<T> clazz) {
+    public <T, R> CompletableFuture<R> post(String url, T bodyValue, Class<R> clazzResult) {
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+            .POST(HttpRequest.BodyPublishers.ofString(encodeJson(bodyValue)))
+            .uri(uri.resolve(url))
+            .header("Content-Type", "application/json")
+            .header("X-Request-ID", requestIdGenerator.generateId())
+            .timeout(requestTimeout)
+            .build();
+
+        return client.sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString())
+            .thenApply(this::verifyResponseAndExtractBody)
+            .thenApply(s -> decodeJson(s, clazzResult));
+    }
+
+    private String verifyResponseAndExtractBody(HttpResponse<String> response) {
+        if( response.statusCode() >= 200 && response.statusCode() < 300) {
+            return response.body();
+        }
+
+        switch(response.statusCode()) {
+            case 501:
+                throw new ClientNotImplementedException(response, decodeJson(response.body(), ServiceError.class));
+
+            default:
+                throw new ClientException(response, decodeJson(response.body(), ServiceError.class));
+        }
+    }
+
+    private <T> String encodeJson(T value) {
+        try {
+            return objectMapper.writeValueAsString(value);
+        } catch (JsonProcessingException ex) {
+            throw new RuntimeException(ex.getMessage(), ex);
+        }
+    }
+
+    private <T> T decodeJson(String s, Class<T> clazz) {
         try {
             return objectMapper.readValue(s, clazz);
         } catch (JsonProcessingException ex) {

@@ -11,22 +11,22 @@ public class ServiceMemoryStatus implements BaseModel {
     /**
      * Max memory of the JVM in bytes
      */
-    public Long max;
+    private Long max;
 
     /**
      * Total memory of the JVM in bytes
      */
-    public Long total;
+    private Long total;
 
     /**
      * Free memory of the JVM in bytes
      */
-    public Long free;
+    private Long free;
 
     /**
      * Used memory of the JVM in bytes
      */
-    public Long used;
+    private Long used;
 
     public ServiceMemoryStatus() {
     }

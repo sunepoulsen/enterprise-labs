@@ -119,7 +119,10 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
             return ((ApiException )ex).getServiceError();
         }
 
-        return new ServiceError();
+        ServiceError serviceError = new ServiceError();
+        serviceError.setMessage(ex.getMessage());
+
+        return serviceError;
     }
 
     private static void logResponseBody( ServiceError body ) {

@@ -5,8 +5,8 @@ import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.model.BaseModel;
 import java.util.Objects;
 
 public class ServiceStatus implements BaseModel {
-    public ServiceStatusCode status;
-    public ServiceMemoryStatus memory;
+    private ServiceStatusCode status;
+    private ServiceMemoryStatus memory;
 
     public ServiceStatus() {
     }
