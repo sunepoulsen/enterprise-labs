@@ -34,7 +34,7 @@ public class ServiceComponentTest {
             .header("X-Request-ID", new UUIDRequestIdGenerator().generateId())
         )
             .andExpect(MockMvcResultMatchers.status().isOk())
-            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
             .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(expected)));
     }
 }

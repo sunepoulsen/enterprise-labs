@@ -4,17 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>dk.sunepoulsen.tech-enterprise-labs</groupId>
-        <artifactId>backends</artifactId>
+        <artifactId>tel-service-bom</artifactId>
         <version>1.0-0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>backend-labs</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>mycash-accounting-backend-service</artifactId>
 
-    <modules>
-        <module>helloworld</module>
-        <module>mycash-backends</module>
-    </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mycash-accounting-backend-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>
