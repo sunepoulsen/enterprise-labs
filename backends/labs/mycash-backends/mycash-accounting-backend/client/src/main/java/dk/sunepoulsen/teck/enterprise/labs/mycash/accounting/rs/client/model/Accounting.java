@@ -2,10 +2,16 @@ package dk.sunepoulsen.teck.enterprise.labs.mycash.accounting.rs.client.model;
 
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.model.BaseModel;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Accounting implements BaseModel {
+    @NotNull
     private Long id;
+
+    @NotNull
+    @NotBlank
     private String name;
     private String description;
 
