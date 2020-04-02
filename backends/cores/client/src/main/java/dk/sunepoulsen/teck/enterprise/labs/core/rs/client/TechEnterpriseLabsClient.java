@@ -2,8 +2,8 @@ package dk.sunepoulsen.teck.enterprise.labs.core.rs.client;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientException;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientNotImplementedException;
+import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientResponseException;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.generators.RequestIdGenerator;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.generators.UUIDRequestIdGenerator;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.model.ServiceError;
@@ -81,7 +81,7 @@ public class TechEnterpriseLabsClient {
                 throw new ClientNotImplementedException(response, decodeJson(response.body(), ServiceError.class));
 
             default:
-                throw new ClientException(response, decodeJson(response.body(), ServiceError.class));
+                throw new ClientResponseException(response, decodeJson(response.body(), ServiceError.class));
         }
     }
 

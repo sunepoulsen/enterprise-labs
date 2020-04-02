@@ -4,7 +4,7 @@ import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.model.ServiceError;
 
 import java.net.http.HttpResponse;
 
-public class ClientNotImplementedException extends ClientException {
+public class ClientNotImplementedException extends ClientResponseException {
     public ClientNotImplementedException(HttpResponse<String> response, ServiceError serviceError) {
         super(response, serviceError);
     }
