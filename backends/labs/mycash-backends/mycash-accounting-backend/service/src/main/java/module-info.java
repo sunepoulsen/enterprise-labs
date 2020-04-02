@@ -13,4 +13,8 @@ module tech.enterprise.labs.mycash.accounting.service {
     requires org.hibernate.validator;
     requires java.validation;
     requires io.reactivex.rxjava2;
+    requires java.persistence;
+    requires spring.data.commons;
+
+    opens dk.sunepoulsen.teck.enterprise.labs.mycash.accounting.service.domain.persistence;
 }
