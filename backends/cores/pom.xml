@@ -38,6 +38,8 @@
         <hibernate-core.version>5.4.12.Final</hibernate-core.version>
         <hibernate-validator.version>6.1.2.Final</hibernate-validator.version>
         <jackson.version>2.10.2</jackson.version>
+        <javax.el.version>2.2.6</javax.el.version>
+        <javax.el-api.version>3.0.0</javax.el-api.version>
         <junit.version>4.13</junit.version>
         <log4j.over.slf4j.version>1.7.30</log4j.over.slf4j.version>
         <logback.version>1.2.3</logback.version>
@@ -135,13 +137,29 @@
             </dependency>
 
             <!-- ======================================================================== -->
-            <!--            Hibernate                                                     -->
+            <!--            Validation                                                    -->
             <!-- ======================================================================== -->
 
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate-validator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator-annotation-processor</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.el</groupId>
+                <artifactId>javax.el-api</artifactId>
+                <version>${javax.el-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.web</groupId>
+                <artifactId>javax.el</artifactId>
+                <version>${javax.el.version}</version>
             </dependency>
 
             <!-- ======================================================================== -->

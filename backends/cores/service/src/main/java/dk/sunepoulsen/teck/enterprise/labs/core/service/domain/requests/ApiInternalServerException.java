@@ -4,6 +4,10 @@ package dk.sunepoulsen.teck.enterprise.labs.core.service.domain.requests;
  * Created by sunepoulsen on 19/12/2016.
  */
 public class ApiInternalServerException extends ApiException {
+    public ApiInternalServerException() {
+        super( "Unable to complete request" );
+    }
+
     public ApiInternalServerException( Throwable ex ) {
         super( "Unable to complete request", ex );
     }
