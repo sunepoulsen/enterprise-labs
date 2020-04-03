@@ -3,6 +3,7 @@ package dk.sunepoulsen.teck.enterprise.labs.core.rs.client;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientBadRequestException;
+import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientConflictException;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientNotImplementedException;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.exceptions.ClientResponseException;
 import dk.sunepoulsen.teck.enterprise.labs.core.rs.client.generators.RequestIdGenerator;
@@ -80,6 +81,9 @@ public class TechEnterpriseLabsClient {
         switch(response.statusCode()) {
             case 400:
                 throw new ClientBadRequestException(response, decodeJson(response.body(), ServiceError.class));
+
+            case 409:
+                throw new ClientConflictException(response, decodeJson(response.body(), ServiceError.class));
 
             case 501:
                 throw new ClientNotImplementedException(response, decodeJson(response.body(), ServiceError.class));
