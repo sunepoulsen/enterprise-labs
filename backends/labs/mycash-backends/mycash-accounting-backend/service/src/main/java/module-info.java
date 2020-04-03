@@ -15,6 +15,7 @@ module tech.enterprise.labs.mycash.accounting.service {
     requires io.reactivex.rxjava2;
     requires java.persistence;
     requires spring.data.commons;
+    requires spring.data.jpa;
 
     opens dk.sunepoulsen.teck.enterprise.labs.mycash.accounting.service.domain.persistence;
 }

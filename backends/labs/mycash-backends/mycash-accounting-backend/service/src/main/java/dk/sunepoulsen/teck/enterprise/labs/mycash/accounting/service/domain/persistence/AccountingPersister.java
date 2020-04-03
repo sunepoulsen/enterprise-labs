@@ -1,5 +1,6 @@
 package dk.sunepoulsen.teck.enterprise.labs.mycash.accounting.service.domain.persistence;
 
+import dk.sunepoulsen.teck.enterprise.labs.core.service.domain.logic.DuplicateResourceException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,6 +12,10 @@ public class AccountingPersister {
     }
 
     public AccountingEntity createAccounting( AccountingEntity entity ) {
+        if( repository.findByName(entity.getName()) != null) {
+            throw new DuplicateResourceException("name", "An accounting already exist");
+        }
+
         return repository.save(entity);
     }
 }
