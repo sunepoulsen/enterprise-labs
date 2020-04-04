@@ -3,7 +3,13 @@ services:
   helloworld-backend-service:
     image: helloworld-backend-service:latest
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_PROFILES_ACTIVE=local-backend
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+
+  mycash-accounting-backend-service:
+    image: mycash-accounting-backend-service:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-backend
       - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
 
   tel-dev-proxy:
@@ -16,3 +22,4 @@ services:
       - "13200:80"
     links:
       - helloworld-backend-service
+      - mycash-accounting-backend-service

@@ -6,6 +6,12 @@ services:
       - SPRING_PROFILES_ACTIVE=dev
       - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
 
+  mycash-accounting-backend-service:
+    image: mycash-accounting-backend-service:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+
   tech-enterprise-labs-web:
     image: tech-enterprise-labs-web:latest
 
@@ -20,4 +26,5 @@ services:
       - "13100:80"
     links:
       - helloworld-backend-service
+      - mycash-accounting-backend-service
       - tech-enterprise-labs-web
