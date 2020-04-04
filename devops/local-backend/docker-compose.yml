@@ -5,12 +5,22 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=local-backend
       - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+    volumes:
+      - "../config/backends/helloworld/application.yml:/opt/app/config/application.yml:ro"
+      - "../config/backends/helloworld/application-local-backend.yml:/opt/app/config/application-local-backend.yml:ro"
+      - "../config/backends/application.yml:/opt/app/application.yml:ro"
+      - "../config/backends/application-local-backend.yml:/opt/app/application-local-backend.yml:ro"
 
   mycash-accounting-backend-service:
     image: mycash-accounting-backend-service:latest
     environment:
       - SPRING_PROFILES_ACTIVE=local-backend
       - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+    volumes:
+      - "../config/backends/mycash/accounting/application.yml:/opt/app/config/application.yml:ro"
+      - "../config/backends/mycash/accounting/application-local-backend.yml:/opt/app/config/application-local-backend.yml:ro"
+      - "../config/backends/application.yml:/opt/app/application.yml:ro"
+      - "../config/backends/application-local-backend.yml:/opt/app/application-local-backend.yml:ro"
 
   tel-dev-proxy:
     image: nginx:latest

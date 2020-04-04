@@ -5,12 +5,22 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+    volumes:
+      - "../config/backends/helloworld/application.yml:/opt/app/config/application.yml:ro"
+      - "../config/backends/helloworld/application-dev.yml:/opt/app/config/application-dev.yml:ro"
+      - "../config/backends/application.yml:/opt/app/application.yml:ro"
+      - "../config/backends/application-dev.yml:/opt/app/application-dev.yml:ro"
 
   mycash-accounting-backend-service:
     image: mycash-accounting-backend-service:latest
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+    volumes:
+      - "../config/backends/mycash/accounting/application.yml:/opt/app/config/application.yml:ro"
+      - "../config/backends/mycash/accounting/application-dev.yml:/opt/app/config/application-dev.yml:ro"
+      - "../config/backends/application.yml:/opt/app/application.yml:ro"
+      - "../config/backends/application-dev.yml:/opt/app/application-dev.yml:ro"
 
   tech-enterprise-labs-web:
     image: tech-enterprise-labs-web:latest
