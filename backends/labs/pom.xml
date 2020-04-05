@@ -14,6 +14,7 @@
 
     <modules>
         <module>helloworld</module>
+        <module>mycash-backends</module>
     </modules>
 
 </project>

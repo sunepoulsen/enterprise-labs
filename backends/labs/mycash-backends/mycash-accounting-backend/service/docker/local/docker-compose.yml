@@ -1,0 +1,12 @@
+version: "2"
+services:
+  tel-mycash-accounting-service:
+    image: mycash-accounting-backend-service:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+    ports:
+      - "8080"
+      - "8000"
+    volumes:
+      - "../../target/docker/local/logs:/opt/logs"

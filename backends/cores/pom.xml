@@ -28,7 +28,7 @@
 
         <!-- Spring versions -->
         <spring-boot.version>2.1.12.RELEASE</spring-boot.version>
-        <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
+        <spring-framework.version>5.1.13.RELEASE</spring-framework.version>
         <tomcat-embed-core.version>9.0.31</tomcat-embed-core.version>
 
         <!-- Library versions -->
@@ -38,12 +38,16 @@
         <hibernate-core.version>5.4.12.Final</hibernate-core.version>
         <hibernate-validator.version>6.1.2.Final</hibernate-validator.version>
         <jackson.version>2.10.2</jackson.version>
+        <javax.el.version>2.2.6</javax.el.version>
+        <javax.el-api.version>3.0.0</javax.el-api.version>
         <junit.version>4.13</junit.version>
         <log4j.over.slf4j.version>1.7.30</log4j.over.slf4j.version>
         <logback.version>1.2.3</logback.version>
+        <lombok.version>1.16.20</lombok.version>
         <mockito.version>1.10.19</mockito.version>
         <perf4j.version>0.9.16</perf4j.version>
         <rxjava.version>2.2.18</rxjava.version>
+        <swagger.version>2.9.2</swagger.version>
 
         <!-- Plugin versions -->
         <compiler.plugin.version>3.8.1</compiler.plugin.version>
@@ -79,6 +83,12 @@
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${spring-boot.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring-framework.version}</version>
@@ -97,6 +107,21 @@
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
                 <version>${tomcat-embed-core.version}</version>
+            </dependency>
+
+            <!-- ======================================================================== -->
+            <!--            Swagger                                                       -->
+            <!-- ======================================================================== -->
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
 
             <!-- ======================================================================== -->
@@ -135,13 +160,29 @@
             </dependency>
 
             <!-- ======================================================================== -->
-            <!--            Hibernate                                                     -->
+            <!--            Validation                                                    -->
             <!-- ======================================================================== -->
 
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate-validator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator-annotation-processor</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.el</groupId>
+                <artifactId>javax.el-api</artifactId>
+                <version>${javax.el-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.web</groupId>
+                <artifactId>javax.el</artifactId>
+                <version>${javax.el.version}</version>
             </dependency>
 
             <!-- ======================================================================== -->

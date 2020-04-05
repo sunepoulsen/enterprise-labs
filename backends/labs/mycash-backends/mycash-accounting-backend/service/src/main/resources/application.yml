@@ -1,0 +1,28 @@
+# ===================================================================
+#                   Swagger configuration
+# ===================================================================
+
+swagger:
+  title: 'MyCash Lab Accountings'
+  description: 'Service for accountings'
+  contact:
+    name: 'Sune Thomas Poulsen'
+    url: ''
+    email: 'sunepoulsen@gmail.com'
+  license: 'Apache License Version 2.0'
+  licenseUrl: 'https://github.com/springfox/springfox/blob/master/LICENSE'
+  version: '2.0'
+
+# ===================================================================
+#                   Database configuration
+# ===================================================================
+
+spring:
+  liquibase:
+    change-log: 'classpath:/db/changelog/changelog.xml'
+
+  jpa:
+    hibernate:
+      ddl-auto: 'validate'
+      show-sql: false
+
