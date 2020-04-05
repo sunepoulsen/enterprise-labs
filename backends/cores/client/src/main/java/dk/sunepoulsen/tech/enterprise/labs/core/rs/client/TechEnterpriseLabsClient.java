@@ -60,6 +60,22 @@ public class TechEnterpriseLabsClient {
         return executeRequest("PATCH", url, bodyValue, clazzResult);
     }
 
+    public CompletableFuture<String> delete(String url) {
+        return executeRequest("DELETE", url);
+    }
+
+    private CompletableFuture<String> executeRequest(String method, String url) {
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+            .method(method, HttpRequest.BodyPublishers.noBody())
+            .uri(uri.resolve(url))
+            .header("X-Request-ID", requestIdGenerator.generateId())
+            .timeout(requestTimeout)
+            .build();
+
+        return client.sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString())
+            .thenApply(this::verifyResponseAndExtractBody);
+    }
+
     private <T, R> CompletableFuture<R> executeRequest(String method, String url, Class<R> clazzResult) {
         HttpRequest httpRequest = HttpRequest.newBuilder()
             .method(method, HttpRequest.BodyPublishers.noBody())
