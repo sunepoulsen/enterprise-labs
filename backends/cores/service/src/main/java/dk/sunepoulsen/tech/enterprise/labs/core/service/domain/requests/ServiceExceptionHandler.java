@@ -109,7 +109,8 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
             return null;
         }
         finally {
-            log.info( ex.getMessage(), ex );
+            log.info( ex.getMessage() );
+            log.debug( "Exception", ex );
             logResponseBody( body );
         }
     }

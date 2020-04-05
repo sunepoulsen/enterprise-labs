@@ -1,0 +1,11 @@
+# ====================================================================================
+#       Logging configuration
+# ====================================================================================
+
+logging:
+  file: 'target/logs/service.log'
+  pattern:
+    console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr( ){magenta} %clr(---){faint} %clr([%20.20t]){faint} %clr([%30.30X{request.id}]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p --- [%20.20t] [%30.30X{request.id}] %-40.40logger{39} : %m%n%wEx'
+  level:
+    dk.sunepoulsen.tech.enterprise.labs: DEBUG

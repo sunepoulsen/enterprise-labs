@@ -18,6 +18,7 @@ class RequestLoggingInterceptor implements HandlerInterceptor {
     private static final Logger log = LoggerFactory.getLogger( RequestLoggingInterceptor.class );
 
     private static final String HEADER_REQUEST_ID_NAME = "X-Request-ID";
+    private static final String ATTRIBUTE_REQUEST_IS_LOGGED_NAME = "RequestLoggingInterceptor.request.is.logged";
     private static final String ATTRIBUTE_STOP_WATCH_NAME = "RequestLoggingInterceptor.stop.watch";
     private static final String ATTRIBUTE_STOP_WATCH_TAG_NAME = "RequestLoggingInterceptor.stop.watch.tag";
 
@@ -47,20 +48,35 @@ class RequestLoggingInterceptor implements HandlerInterceptor {
 
         log.info( "Starting processing of request: {} {} ==> {}", httpServletRequest.getMethod().toUpperCase(), requestPath, httpServletRequest.getRequestURI() );
 
+        httpServletRequest.setAttribute( ATTRIBUTE_REQUEST_IS_LOGGED_NAME, Boolean.FALSE );
         return true;
     }
 
     @Override
     public void postHandle( HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler, ModelAndView modelAndView ) throws Exception {
-    }
+        if( !Boolean.FALSE.equals(httpServletRequest.getAttribute(ATTRIBUTE_REQUEST_IS_LOGGED_NAME))) {
+            return;
+        }
 
-    @Override
-    public void afterCompletion( HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler, Exception ex ) throws Exception {
+        String requestPath = getRequestPath( handler );
+        if( requestPath.isEmpty() ) {
+            requestPath = httpServletRequest.getRequestURI();
+        }
+        log.info( "Response code: {}", httpServletResponse.getStatus() );
+        log.info( "Done processing of request: {} {} ==> {}", httpServletRequest.getMethod().toUpperCase(), requestPath, httpServletRequest.getRequestURI() );
+
         Object watch = httpServletRequest.getAttribute( ATTRIBUTE_STOP_WATCH_NAME );
         if( watch instanceof StopWatch ) {
             StopWatch stopWatch = ((StopWatch)watch);
             stopWatch.stop( httpServletRequest.getAttribute( ATTRIBUTE_STOP_WATCH_TAG_NAME ).toString() + "." + httpServletResponse.getStatus() );
         }
+
+        httpServletRequest.setAttribute( ATTRIBUTE_REQUEST_IS_LOGGED_NAME, Boolean.TRUE );
+    }
+
+    @Override
+    public void afterCompletion( HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler, Exception ex ) throws Exception {
+        this.postHandle(httpServletRequest, httpServletResponse, handler, null);
     }
 
     private String getRequestPath( Object handler ) {
