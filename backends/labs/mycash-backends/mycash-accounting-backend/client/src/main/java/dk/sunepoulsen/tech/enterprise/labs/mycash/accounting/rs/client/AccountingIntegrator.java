@@ -19,6 +19,11 @@ public class AccountingIntegrator extends AbstractIntegrator {
             .onErrorResumeNext(this::mapClientExceptions);
     }
 
+    public Single<Accounting> getAccounting(Long id) {
+        return Single.fromFuture(httpClient.get("/accountings/" + id, Accounting.class))
+            .onErrorResumeNext(this::mapClientExceptions);
+    }
+
     public Single<AccountingPagination> getAccountings(Integer page, Integer count) {
         Map<String, String> queryParams = new HashMap<>();
         if( page != null ) {

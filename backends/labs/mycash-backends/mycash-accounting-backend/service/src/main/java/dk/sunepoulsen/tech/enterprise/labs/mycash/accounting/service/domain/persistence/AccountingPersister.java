@@ -25,6 +25,15 @@ public class AccountingPersister {
         return repository.save(entity);
     }
 
+    public AccountingEntity getAccounting(Long id) {
+        Optional<AccountingEntity> optionalEntity = repository.findById(id);
+        if( optionalEntity.isEmpty()) {
+            throw new ResourceNotFoundException("id", "An accounting with id " + id + " was not found");
+        }
+
+        return optionalEntity.get();
+    }
+
     public Page<AccountingEntity> getAccountings(int page, int count) {
         PageRequest request = PageRequest.of(page, count);
         return repository.findAll(request);

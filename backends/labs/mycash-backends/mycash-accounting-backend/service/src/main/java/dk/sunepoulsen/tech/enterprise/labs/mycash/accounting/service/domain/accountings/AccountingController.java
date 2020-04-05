@@ -51,6 +51,21 @@ public class AccountingController {
     }
 
     @ResponseStatus( HttpStatus.OK )
+    @RequestMapping(method = RequestMethod.GET, value = "/accountings/{id}")
+    public Accounting getAccounting(@PathVariable("id") Long id) {
+        try {
+            AccountingEntity entity = accountingPersister.getAccounting(id);
+
+            return AccountingTransformations.fromEntity(entity);
+        }
+        catch(LogicException ex ) {
+            ex.throwApiException();
+        }
+
+        throw new ApiInternalServerException();
+    }
+
+    @ResponseStatus( HttpStatus.OK )
     @RequestMapping(method = RequestMethod.GET, value = "/accountings")
     public AccountingPagination getAccountings(
         @RequestParam(value = "page", required = false) Integer page,

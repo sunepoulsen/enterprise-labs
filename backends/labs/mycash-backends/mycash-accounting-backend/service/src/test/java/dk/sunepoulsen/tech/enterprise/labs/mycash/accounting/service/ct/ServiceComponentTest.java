@@ -3,6 +3,7 @@ package dk.sunepoulsen.tech.enterprise.labs.mycash.accounting.service.ct;
 import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.TechEnterpriseLabsClient;
 import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientBadRequestException;
 import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientConflictException;
+import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientNotFoundException;
 import dk.sunepoulsen.tech.enterprise.labs.mycash.accounting.rs.client.AccountingIntegrator;
 import dk.sunepoulsen.tech.enterprise.labs.mycash.accounting.rs.client.model.Accounting;
 import dk.sunepoulsen.tech.enterprise.labs.mycash.accounting.rs.client.model.AccountingPagination;
@@ -79,7 +80,32 @@ public class ServiceComponentTest {
     }
 
     @Test
-    public void testGetAccounting_NoAccountingsExist_Success() throws Exception {
+    public void testGetAccounting_Success() throws Exception {
+        // Given
+        Accounting newAccounting = new Accounting();
+        newAccounting.setName("name");
+        newAccounting.setDescription("description");
+
+        Accounting createdAccounting = this.integrator.createAccounting(newAccounting).blockingGet();
+
+        // When
+        Accounting actual = this.integrator.getAccounting(createdAccounting.getId()).blockingGet();
+
+        // Then
+        Accounting expected = new Accounting();
+        expected.setId(createdAccounting.getId());
+        expected.setName(newAccounting.getName());
+        expected.setDescription(newAccounting.getDescription());
+        assertThat(actual, equalTo(expected));
+    }
+
+    @Test(expected = ClientNotFoundException.class)
+    public void testGetAccounting_NotFound() throws Exception {
+        this.integrator.getAccounting(25L).blockingGet();
+    }
+
+    @Test
+    public void testGetAccountings_NoAccountingsExist_Success() throws Exception {
         // When
         AccountingPagination actual = this.integrator.getAccountings(0, 10).blockingGet();
 
@@ -94,7 +120,7 @@ public class ServiceComponentTest {
     }
 
     @Test
-    public void testGetAccounting_AccountingsFromFirstPage_Success() throws Exception {
+    public void testGetAccountings_AccountingsFromFirstPage_Success() throws Exception {
         // Given
         List<AccountingEntity> accountingEntities = createAccountingsInDatabase(10);
 
@@ -114,7 +140,7 @@ public class ServiceComponentTest {
     }
 
     @Test
-    public void testGetAccounting_AccountingsFromMiddlePage_Success() throws Exception {
+    public void testGetAccountings_AccountingsFromMiddlePage_Success() throws Exception {
         // Given
         List<AccountingEntity> accountingEntities = createAccountingsInDatabase(95);
 
@@ -134,7 +160,7 @@ public class ServiceComponentTest {
     }
 
     @Test
-    public void testGetAccounting_AccountingsFromLastPage_Success() throws Exception {
+    public void testGetAccountings_AccountingsFromLastPage_Success() throws Exception {
         // Given
         List<AccountingEntity> accountingEntities = createAccountingsInDatabase(95);
 

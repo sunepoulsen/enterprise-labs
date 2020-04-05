@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientBadRequestException;
 import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientConflictException;
+import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientInternalServerException;
+import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientNotFoundException;
 import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientNotImplementedException;
 import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.exceptions.ClientResponseException;
 import dk.sunepoulsen.tech.enterprise.labs.core.rs.client.generators.RequestIdGenerator;
@@ -94,8 +96,14 @@ public class TechEnterpriseLabsClient {
             case 400:
                 throw new ClientBadRequestException(response, decodeJson(response.body(), ServiceError.class));
 
+            case 404:
+                throw new ClientNotFoundException(response, decodeJson(response.body(), ServiceError.class));
+
             case 409:
                 throw new ClientConflictException(response, decodeJson(response.body(), ServiceError.class));
+
+            case 500:
+                throw new ClientInternalServerException(response, decodeJson(response.body(), ServiceError.class));
 
             case 501:
                 throw new ClientNotImplementedException(response, decodeJson(response.body(), ServiceError.class));
