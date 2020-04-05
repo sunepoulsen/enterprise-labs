@@ -55,4 +55,13 @@ public class AccountingPersister {
 
         return repository.save(foundEntity);
     }
+
+    public void deleteAccounting(Long id) {
+        Optional<AccountingEntity> optionalEntity = repository.findById(id);
+        if( optionalEntity.isEmpty()) {
+            throw new ResourceNotFoundException("id", "An accounting with id " + id + " was not found");
+        }
+
+        repository.deleteById(id);
+    }
 }

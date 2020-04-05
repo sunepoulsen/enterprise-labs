@@ -41,4 +41,9 @@ public class AccountingIntegrator extends AbstractIntegrator {
         return Single.fromFuture(httpClient.patch("/accountings/" + id, accounting, Accounting.class))
             .onErrorResumeNext(this::mapClientExceptions);
     }
+
+    public Single<String> deleteAccounting(Long id) {
+        return Single.fromFuture(httpClient.delete("/accountings/" + id))
+            .onErrorResumeNext(this::mapClientExceptions);
+    }
 }

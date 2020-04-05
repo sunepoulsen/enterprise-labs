@@ -120,4 +120,15 @@ public class AccountingController {
 
         throw new ApiInternalServerException();
     }
+
+    @ResponseStatus( HttpStatus.NO_CONTENT )
+    @RequestMapping(method = RequestMethod.DELETE, value = "/accountings/{id}")
+    public void deleteAccounting(@PathVariable("id") Long id) {
+        try {
+            accountingPersister.deleteAccounting(id);
+        }
+        catch(LogicException ex ) {
+            ex.throwApiException();
+        }
+    }
 }

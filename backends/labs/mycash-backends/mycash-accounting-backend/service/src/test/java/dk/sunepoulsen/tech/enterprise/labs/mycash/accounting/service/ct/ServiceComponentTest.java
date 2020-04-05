@@ -18,6 +18,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.net.URI;
@@ -32,6 +33,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
 public class ServiceComponentTest {
     @LocalServerPort
     private int serverPort;
@@ -237,5 +239,27 @@ public class ServiceComponentTest {
         }
 
         return list;
+    }
+
+    @Test
+    public void testDeleteAccounting_Success() throws Exception {
+        // Given
+        Accounting newAccounting = new Accounting();
+        newAccounting.setName("name");
+        newAccounting.setDescription("description");
+
+        Accounting createdAccounting = this.integrator.createAccounting(newAccounting).blockingGet();
+
+        // When
+        this.integrator.deleteAccounting(createdAccounting.getId()).blockingGet();
+
+        // Then
+        Optional<AccountingEntity> optionalAccountingEntity = repository.findById(createdAccounting.getId());
+        assertThat(optionalAccountingEntity.isEmpty(), equalTo(true));
+    }
+
+    @Test(expected = ClientNotFoundException.class)
+    public void testDeleteAccounting_NotFound() throws Exception {
+        this.integrator.deleteAccounting(25L).blockingGet();
     }
 }
