@@ -6,8 +6,6 @@ import dk.sunepoulsen.tech.enterprise.labs.mycash.accounting.rs.client.model.Acc
 import dk.sunepoulsen.tech.enterprise.labs.mycash.accounting.rs.client.model.AccountingPagination;
 import io.reactivex.Single;
 
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,22 +32,8 @@ public class AccountingIntegrator extends AbstractIntegrator {
             .onErrorResumeNext(this::mapClientExceptions);
     }
 
-    protected String createHttpQuery(Map<String, String> params) {
-        if( params.isEmpty()) {
-            return "";
-        }
-
-        StringBuffer result = new StringBuffer();
-
-        result.append('?');
-        params.forEach((key, value) -> {
-            result.append(key);
-            result.append('=');
-            result.append(URLEncoder.encode(value, StandardCharsets.UTF_8));
-            result.append('&');
-        });
-        result.deleteCharAt(result.length() - 1);
-
-        return result.toString();
+    public Single<Accounting> updateAccounting(Long id, Accounting accounting) {
+        return Single.fromFuture(httpClient.patch("/accountings/" + id, accounting, Accounting.class))
+            .onErrorResumeNext(this::mapClientExceptions);
     }
 }

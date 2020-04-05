@@ -47,21 +47,33 @@ public class TechEnterpriseLabsClient {
     }
 
     public <T> CompletableFuture<T> get(String url, Class<T> clazz) {
-        HttpRequest httpRequest = HttpRequest.newBuilder()
-                .GET()
-                .uri(uri.resolve(url))
-                .header("X-Request-ID", requestIdGenerator.generateId())
-                .timeout(requestTimeout)
-                .build();
-
-        return client.sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString())
-            .thenApply(this::verifyResponseAndExtractBody)
-            .thenApply(s -> decodeJson(s, clazz));
+        return executeRequest("GET", url, clazz);
     }
 
     public <T, R> CompletableFuture<R> post(String url, T bodyValue, Class<R> clazzResult) {
+        return executeRequest("POST", url, bodyValue, clazzResult);
+    }
+
+    public <T, R> CompletableFuture<R> patch(String url, T bodyValue, Class<R> clazzResult) {
+        return executeRequest("PATCH", url, bodyValue, clazzResult);
+    }
+
+    private <T, R> CompletableFuture<R> executeRequest(String method, String url, Class<R> clazzResult) {
         HttpRequest httpRequest = HttpRequest.newBuilder()
-            .POST(HttpRequest.BodyPublishers.ofString(encodeJson(bodyValue)))
+            .method(method, HttpRequest.BodyPublishers.noBody())
+            .uri(uri.resolve(url))
+            .header("X-Request-ID", requestIdGenerator.generateId())
+            .timeout(requestTimeout)
+            .build();
+
+        return client.sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString())
+            .thenApply(this::verifyResponseAndExtractBody)
+            .thenApply(s -> decodeJson(s, clazzResult));
+    }
+
+    private <T, R> CompletableFuture<R> executeRequest(String method, String url, T bodyValue, Class<R> clazzResult) {
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+            .method(method, HttpRequest.BodyPublishers.ofString(encodeJson(bodyValue)))
             .uri(uri.resolve(url))
             .header("Content-Type", "application/json")
             .header("X-Request-ID", requestIdGenerator.generateId())

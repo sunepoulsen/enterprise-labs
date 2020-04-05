@@ -153,6 +153,33 @@ public class ServiceComponentTest {
         assertThat(actual, equalTo(expected));
     }
 
+    @Test
+    public void testPatchAccounting_Success() throws Exception {
+        // Given
+        Accounting existingAccounting = new Accounting();
+        existingAccounting.setName("name");
+        existingAccounting.setDescription("description");
+
+        existingAccounting = this.integrator.createAccounting(existingAccounting).blockingGet();
+
+        // When
+        Accounting patchAccounting = new Accounting();
+        patchAccounting.setDescription("New description");
+
+        Accounting actual = this.integrator.updateAccounting(existingAccounting.getId(), patchAccounting).blockingGet();
+
+        // Then
+        Accounting expected = new Accounting();
+        expected.setId( existingAccounting.getId());
+        expected.setName( existingAccounting.getName());
+        expected.setDescription( patchAccounting.getDescription());
+
+        assertThat(actual, equalTo(expected));
+        Optional<AccountingEntity> optionalAccountingEntity = repository.findById(actual.getId());
+        assertThat(optionalAccountingEntity.isEmpty(), equalTo(false));
+        MatcherAssert.assertThat(expected, equalTo(AccountingTransformations.fromEntity(optionalAccountingEntity.get())));
+    }
+
     private List<AccountingEntity> createAccountingsInDatabase(int count) {
         List<AccountingEntity> entities = new ArrayList<>();
 
