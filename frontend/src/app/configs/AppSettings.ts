@@ -48,8 +48,24 @@ export class AppSettings {
                 }
               ]
             }
+          ],
+          [
+            {
+              label: 'Backends',
+              items: [
+                {
+                  label: 'Hello World',
+                  url: this.backendBaseUrl + '/helloworld/swagger-ui.html',
+                  target: '_blank'
+                },
+                {
+                  label: 'MyCash Accounting',
+                  url: this.backendBaseUrl + '/mycash/accounting/swagger-ui.html',
+                  target: '_blank'
+                }
+              ]
+            }
           ]
-
         ]
       },
       {
