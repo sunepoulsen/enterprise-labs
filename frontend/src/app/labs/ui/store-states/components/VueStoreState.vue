@@ -10,11 +10,11 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator'
-  import VueStoreStateForm from '@/app/labs/ui/store-states/components/VueStoreStateForm.vue'
-  import VueStoreStateResult from '@/app/labs/ui/store-states/components/VueStoreStateResult.vue'
+import { Component, Vue } from 'vue-property-decorator'
+import VueStoreStateForm from '@/app/labs/ui/store-states/components/VueStoreStateForm.vue'
+import VueStoreStateResult from '@/app/labs/ui/store-states/components/VueStoreStateResult.vue'
 
-  @Component({
+@Component({
   components: {
     VueStoreStateForm,
     VueStoreStateResult

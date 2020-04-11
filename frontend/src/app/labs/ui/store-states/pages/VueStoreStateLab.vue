@@ -16,11 +16,11 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator'
-  import VueStoreState from '@/app/labs/ui/store-states/components/VueStoreState.vue'
-  import VueStoreStateDoc from '@/app/labs/ui/store-states/components/VueStoreStateDoc.vue'
+import { Component, Vue } from 'vue-property-decorator'
+import VueStoreState from '@/app/labs/ui/store-states/components/VueStoreState.vue'
+import VueStoreStateDoc from '@/app/labs/ui/store-states/components/VueStoreStateDoc.vue'
 
-  @Component({
+@Component({
   components: {
     VueStoreState,
     VueStoreStateDoc

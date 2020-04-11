@@ -20,11 +20,11 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator'
-  import LabelGrid from '@/app/shared/components/layouts/LabelGrid.vue'
-  import { StoreStatesModel } from '@/app/core/store/modules/store-states/model/StoreStatesModel'
+import { Component, Vue } from 'vue-property-decorator'
+import LabelGrid from '@/app/shared/components/layouts/LabelGrid.vue'
+import { StoreStatesModel } from '@/app/core/store/modules/store-states/model/StoreStatesModel'
 
-  @Component({
+@Component({
   components: { LabelGrid }
 })
 export default class VueStoreStateForm extends Vue {

@@ -16,11 +16,11 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator'
-  import { StoreStatesModel } from '@/app/core/store/modules/store-states/model/StoreStatesModel'
-  import LabelGrid from '@/app/shared/components/layouts/LabelGrid.vue'
+import { Component, Vue } from 'vue-property-decorator'
+import { StoreStatesModel } from '@/app/core/store/modules/store-states/model/StoreStatesModel'
+import LabelGrid from '@/app/shared/components/layouts/LabelGrid.vue'
 
-  @Component({
+@Component({
   components: {
     LabelGrid
   }
