@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import App from './app/App.vue'
 import router from './app/layout/Layout-Router'
-import store from './app/core/Store'
+import store from './app/core/store/Store'
 
 import 'primevue/resources/themes/rhea/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
-
 // Import PrimeVUE UI components
 import Button from 'primevue/button'
 import Card from 'primevue/card'

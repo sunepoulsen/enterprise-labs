@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../modules/home/pages/Home.vue'
 import About from '@/app/modules/about/pages/About.vue'
 import VueComponentRenderLab from '@/app/labs/ui/component-rendering/pages/VueComponentRenderLab.vue'
+import VueStoreStateLab from '@/app/labs/ui/store-states/pages/VueStoreStateLab.vue'
 import LogicCalendarLab from '@/app/labs/ui/calendar/pages/LogicCalendarLab.vue'
 import HelloWorldLab from '@/app/labs/integrations/helloworld/pages/HelloWorldLab.vue'
 import myCashRoute from '@/app/labs/mycash/layout/MyCash-Router'
@@ -18,6 +19,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/labs/ui/component-rendering',
     component: VueComponentRenderLab
+  },
+  {
+    path: '/labs/ui/store-states',
+    component: VueStoreStateLab
   },
   {
     path: '/labs/ui/calendar',

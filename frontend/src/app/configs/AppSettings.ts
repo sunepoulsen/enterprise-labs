@@ -3,7 +3,7 @@
  */
 
 export class AppSettings {
-  private backendBaseUrl = '/api'
+  private backendBaseUrl = 'http://localhost:13200/api'
   name = 'Tech Enterprise Labs';
   version = '1.0.0';
 
@@ -19,6 +19,10 @@ export class AppSettings {
                 {
                   label: 'Component Rendering',
                   to: '/labs/ui/component-rendering'
+                },
+                {
+                  label: 'VUEx Store States',
+                  to: '/labs/ui/store-states'
                 },
                 {
                   label: 'Date & Times',
