@@ -17,7 +17,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator'
-  import { StoreStatesModel } from '@/app/core/store/model/store-states/StoreStatesModel'
+  import { StoreStatesModel } from '@/app/core/store/modules/store-states/model/StoreStatesModel'
   import LabelGrid from '@/app/shared/components/layouts/LabelGrid.vue'
 
   @Component({
@@ -29,10 +29,7 @@ export default class VueStoreStateResult extends Vue {
   formWidth = '150px';
 
   getStoreStates (): StoreStatesModel {
-    const model: StoreStatesModel = this.$store.state.storeStates
-
-    console.info('Read model from Store: ' + model)
-    return model
+    return this.$store.state.storeStates.storeStates
   }
 }
 </script>
