@@ -3,7 +3,7 @@
  */
 
 export class AppSettings {
-  private backendBaseUrl = 'http://localhost:13200/api'
+  private backendBaseUrl = 'http://localhost:13100/api'
   name = 'Tech Enterprise Labs';
   version = '1.0.0';
 
