@@ -3,19 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
+        <artifactId>timelog-backends</artifactId>
         <groupId>dk.sunepoulsen.tech-enterprise-labs</groupId>
-        <artifactId>backends</artifactId>
         <version>1.0-0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>backend-labs</artifactId>
+    <artifactId>timelog-backend</artifactId>
     <packaging>pom</packaging>
-
     <modules>
-        <module>helloworld</module>
-        <module>mycash-backends</module>
-        <module>timelog-backends</module>
+        <module>service</module>
     </modules>
+
 
 </project>

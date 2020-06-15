@@ -176,6 +176,13 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>2.4.5</version>
+                <scope>test</scope>
+            </dependency>
+
             <!-- ======================================================================== -->
             <!--            Cucumber Testing                                              -->
             <!-- ======================================================================== -->
@@ -308,6 +315,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <!-- ======================================================================== -->
         <!--            Cucumber Testing                                              -->
         <!-- ======================================================================== -->
@@ -355,6 +368,29 @@
                 <configuration>
                     <skipTests>${skip.unit.tests}</skipTests>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.groovy.maven</groupId>
+                <artifactId>gmaven-plugin</artifactId>
+                <version>1.0</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <fileset>
+                                    <directory>${pom.basedir}/src/test/groovy</directory>
+                                    <includes>
+                                        <include>**/*.groovy</include>
+                                    </includes>
+                                </fileset>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>

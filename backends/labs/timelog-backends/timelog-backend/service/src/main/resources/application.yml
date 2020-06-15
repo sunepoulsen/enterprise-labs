@@ -3,8 +3,8 @@
 # ===================================================================
 
 swagger:
-  title: 'Hello World'
-  description: 'Hello World Service'
+  title: 'TimeLog'
+  description: 'TimeLog Service'
   contact:
     name: 'Sune Thomas Poulsen'
     url: ''
