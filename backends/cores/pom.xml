@@ -35,7 +35,7 @@
         <apache-common-io.version>2.6</apache-common-io.version>
         <cucumber.version>1.2.5</cucumber.version>
         <hamcrest.version>1.3</hamcrest.version>
-        <hibernate-core.version>5.4.12.Final</hibernate-core.version>
+        <hibernate-core.version>5.4.24.Final</hibernate-core.version>
         <hibernate-validator.version>6.1.2.Final</hibernate-validator.version>
         <jackson.version>2.10.2</jackson.version>
         <javax.el.version>2.2.6</javax.el.version>
