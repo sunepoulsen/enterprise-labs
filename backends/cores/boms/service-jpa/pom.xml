@@ -17,7 +17,7 @@
 
         <jdbc.h2.version>1.4.200</jdbc.h2.version>
         <jdbc.mysql.version>8.0.19</jdbc.mysql.version>
-        <jdbc.postgresql.version>42.2.11</jdbc.postgresql.version>
+        <jdbc.postgresql.version>42.3.3</jdbc.postgresql.version>
     </properties>
 
     <dependencies>
