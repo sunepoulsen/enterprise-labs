@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <liquibase.version>3.8.0</liquibase.version>
+        <liquibase.version>4.8.0</liquibase.version>
 
         <jdbc.h2.version>1.4.200</jdbc.h2.version>
         <jdbc.mysql.version>8.0.19</jdbc.mysql.version>
